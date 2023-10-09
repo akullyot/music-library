@@ -1,8 +1,6 @@
-import { useState, useContext }    from 'react';
-import { DataContext } from '../DataContext';
+import { useState }    from 'react';
 
 function GalleryItem(props){
-    const data = useContext(DataContext);
     //Purpose: determines if a user is seeing detailed view or not 
     let [detailedview, setdetailedView] = useState(false);
 

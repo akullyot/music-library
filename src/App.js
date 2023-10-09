@@ -53,7 +53,6 @@ function App(){
     }
     return (
         <div>
-
           <header>
             <h1>Welcome to our Song Searching App!</h1>
             <h3>Use the search bar below to search all of Itunes's Music</h3>
