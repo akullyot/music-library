@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState }          from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery                   from './Components/Gallery'
 import SearchBar                 from './Components/SearchBar'
