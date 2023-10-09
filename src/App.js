@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
-import Gallery                 from './Components/Gallery';
-import SearchBar               from './Components/SearchBar';
-//Import in our Context
-import { DataContext }         from './DataContext';
+import { Fragment, useEffect, useState }          from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Gallery                   from './Components/Gallery'
+import SearchBar                 from './Components/SearchBar'
+import AlbumView                 from './Components/AlbumView'
+import ArtistView                from './Components/ArtistView'
+
 
 function App(){
     //Purpose: Holds Search query Info
@@ -19,7 +21,7 @@ function App(){
       {
         const fetchData = async () => {
           document.title = `${search} Music`;
-          const response = await fetch(new URL(API_URL + search));
+          const response = await fetch((API_URL + search));
           const responseData = await response.json();
           //Now lets check if this was a valid search with results,if it is update data if not set a validity of search
           if (responseData.results.length > 0)
@@ -51,20 +53,26 @@ function App(){
     }
     return (
         <div>
+
           <header>
             <h1>Welcome to our Song Searching App!</h1>
             <h3>Use the search bar below to search all of Itunes's Music</h3>
           </header>
-          <section>
-            <SearchBar handleSearch = {handleSearch} handleClear = {handleClear}/>
-              {message}
-              <DataContext.Provider value={data}>
-                <Gallery/>
-              </DataContext.Provider>
-          </section>
+          {message}
+          <Router>
+            <Routes>
+              <Route path ="/" element = {
+                <Fragment>
+                  <SearchBar handleSearch = {handleSearch} handleClear = {handleClear}/>
+                  <Gallery data={data} />
+                </Fragment>
+              }/>
+              <Route path='/album/:id' element={<AlbumView/>}/>
+              <Route path='/artist/:id' element={<ArtistView/>}/>
+            </Routes>
+          </Router>
         </div>
     )
 }
 
 export default App;
-
