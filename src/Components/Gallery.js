@@ -14,6 +14,6 @@ function Gallery(props){
             {display}
         </div>
     )
-}
+};
 
 export default Gallery;
