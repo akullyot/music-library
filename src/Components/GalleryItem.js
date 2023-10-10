@@ -1,5 +1,6 @@
+//Import in all Required Hooks
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link }     from 'react-router-dom';
 
 function GalleryItem(props){
     //Purpose: determines if a user is seeing detailed view or not 

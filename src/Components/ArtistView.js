@@ -1,9 +1,14 @@
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+//Import in all required Hooks
+import { useParams }            from 'react-router-dom';
+import { useEffect, useState }  from 'react';
 
 function ArtistView() {
-    const { id } = useParams()
-    const [ artistData, setArtistData ] = useState([])
+    //Purpose: pulling in variable information from the URL path variable of the apple artist ID
+    const { id } = useParams();
+    //Purpose: holds all fetched data about said artist as a state variable
+    const [ artistData, setArtistData ] = useState([]);
+    //Purpose: fetch all information
+    //useEffect(() => {},[]);
 
     return (
         <div>

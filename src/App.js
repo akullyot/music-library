@@ -1,9 +1,11 @@
-import { Fragment, useEffect, useState }          from 'react'
+//Import hooks and dependencies
+import { Fragment, useEffect, useState }          from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Gallery                   from './Components/Gallery'
-import SearchBar                 from './Components/SearchBar'
-import AlbumView                 from './Components/AlbumView'
-import ArtistView                from './Components/ArtistView'
+//Import Components
+import Gallery                   from './Components/Gallery';
+import SearchBar                 from './Components/SearchBar';
+import AlbumView                 from './Components/AlbumView';
+import ArtistView                from './Components/ArtistView';
 
 
 function App(){
@@ -13,17 +15,18 @@ function App(){
     let [message, setMessage] = useState('Search for Music!');
     //Purpose: Holds the fetched data 
     let [data, setData]       = useState([]);
-    const API_URL = 'https://itunes.apple.com/search?term=';
     //Purpose: on a search state change, try to find the data
     useEffect(() => {
-      //prevents it from running if its an empty string
+      const API_URL = 'https://itunes.apple.com/search?term=';
+      //Note: search present to prevent fetch from running if its an empty string
       if (search)
       {
+        //Purpose: upon Search Entry submission, scrub apple music API for any term that matches the search input
         const fetchData = async () => {
           document.title = `${search} Music`;
           const response = await fetch((API_URL + search));
           const responseData = await response.json();
-          //Now lets check if this was a valid search with results,if it is update data if not set a validity of search
+          //Now lets check if this was a valid search with results,if it is update data if not set a message of search failure and clear
           if (responseData.results.length > 0)
           {
             setData(responseData.results);
@@ -40,7 +43,7 @@ function App(){
     }, [search]);
     //Purpose: once the searchbar is submitting, change the search state
     const handleSearch = (event,term) => {
-      //prevent page relaoading
+      //prevent page reloading
       event.preventDefault();
       setSearch(term);
     };
