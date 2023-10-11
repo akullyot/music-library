@@ -6,6 +6,8 @@ import Gallery                   from './Components/Gallery';
 import SearchBar                 from './Components/SearchBar';
 import AlbumView                 from './Components/AlbumView';
 import ArtistView                from './Components/ArtistView';
+//Import Bootstrap COmponents
+
 
 
 function App(){

@@ -21,7 +21,7 @@ function GalleryItem(props){
         'margin': '2px',
         'backgroundImage': `url(${props.item.artworkUrl100})`,
         'backgroundRepeat': 'no-repeat',
-        'backgroundSize': 'cover',
+        'backgroundSize': 'cover', //notice name is not background-size, js is camelCased
         'color': 'yellow'
     }
     
