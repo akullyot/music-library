@@ -1,12 +1,16 @@
 //Import hooks and dependencies
 import { Fragment, useEffect, useState }          from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 //Import Components
 import Gallery                   from './Components/Gallery';
 import SearchBar                 from './Components/SearchBar';
 import AlbumView                 from './Components/AlbumView';
 import ArtistView                from './Components/ArtistView';
-//Import Bootstrap COmponents
+
+
+//Import Bootstrap Components
+
 
 
 
